@@ -4,12 +4,12 @@ import { Controller } from "react-hook-form";
 import { CustomDropDownProps } from "@/types/CustomDropDropProps";
 import { AntDesign } from "@expo/vector-icons";
 
-const CustomDropDown: React.FC<CustomDropDownProps> = ({
+function CustomDropDown<T extends { id: number; name: string }>({
 	name,
 	control,
 	data,
 	placeholder,
-}) => {
+}: CustomDropDownProps<T>) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	const toggleDropDownMenu = () => {
@@ -80,6 +80,6 @@ const CustomDropDown: React.FC<CustomDropDownProps> = ({
 			)}
 		/>
 	);
-};
+}
 
 export default CustomDropDown;

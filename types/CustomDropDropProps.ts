@@ -1,9 +1,8 @@
 import { Control } from "react-hook-form";
-import { categoryDataType } from "./CategoryDataType";
 
-export interface CustomDropDownProps {
+export interface CustomDropDownProps<T> {
     name: string;
     control: Control<any>;
-    data?: categoryDataType[];
+    data?: T[];
     placeholder: string;
 }
