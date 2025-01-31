@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import React, { useState } from "react";
 import { Controller } from "react-hook-form";
 import { CustomDropDownProps } from "@/types/CustomDropDropProps";
+import { AntDesign } from "@expo/vector-icons";
 
 const CustomDropDown: React.FC<CustomDropDownProps> = ({
 	name,
@@ -22,13 +23,16 @@ const CustomDropDown: React.FC<CustomDropDownProps> = ({
 			render={({ field: { onChange, value }, fieldState: { error } }) => (
 				<View className="relative">
 					<TouchableOpacity
-						className="p-2 border border-black rounded-lg"
+						className="p-2 border border-black rounded-lg flex-row items-center justify-between pr-4"
 						onPress={toggleDropDownMenu}
 						activeOpacity={0.7}
 					>
 						<Text className="font-rubik-medium text-base text-text">
 							{value ? value : placeholder}
 						</Text>
+						<AntDesign
+							name={isMenuOpen ? "caretup" : "caretdown"}
+						/>
 					</TouchableOpacity>
 
 					{isMenuOpen && (
