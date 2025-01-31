@@ -1,7 +1,11 @@
-import { SplashScreen, Stack } from "expo-router";
+import { Stack } from "expo-router";
 import "../global.css";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
+
+import * as SplashScreen from "expo-splash-screen";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
 	const [fontsLoaded] = useFonts({
