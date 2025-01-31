@@ -1,10 +1,6 @@
 import { TextInput, View } from "react-native";
-import { Control, Controller } from "react-hook-form";
-
-interface CustomInputPropsTypes {
-	control: Control<any>;
-	name: string;
-}
+import { Controller } from "react-hook-form";
+import { CustomInputPropsTypes } from "@/types/CustomInputPropsTypes";
 
 const CustomInput: React.FC<CustomInputPropsTypes> = ({ name, control }) => {
 	return (

@@ -1,13 +1,7 @@
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
-import React, { useCallback, useRef, useState } from "react";
-import { Control, Controller } from "react-hook-form";
-
-interface CustomDropDownProps {
-	name: string;
-	control: Control<any>;
-	data: string[];
-	placeholder: string;
-}
+import React, { useState } from "react";
+import { Controller } from "react-hook-form";
+import { CustomDropDownProps } from "@/types/CustomDropDropProps";
 
 const CustomDropDown: React.FC<CustomDropDownProps> = ({
 	name,
