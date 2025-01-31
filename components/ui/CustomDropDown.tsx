@@ -42,30 +42,31 @@ const CustomDropDown: React.FC<CustomDropDownProps> = ({
 								showsVerticalScrollIndicator={false}
 								style={{ maxHeight: 150 }}
 							>
-								{data.map((item, index) => (
-									<TouchableOpacity
-										key={index}
-										onPress={() => {
-											onChange(item);
-											setIsMenuOpen(false);
-										}}
-										className={`p-3 ${
-											index < data.length - 1
-												? "border-b border-gray-200"
-												: ""
-										}`}
-									>
-										<Text
-											className={`font-rubik-regular text-base ${
-												value === item
-													? "text-primary font-rubik-semibold"
-													: "text-text"
+								{data &&
+									data.map((item) => (
+										<TouchableOpacity
+											key={item.id}
+											onPress={() => {
+												onChange(item.name);
+												setIsMenuOpen(false);
+											}}
+											className={`p-3 ${
+												item.id < data.length - 1
+													? "border-b border-gray-200"
+													: ""
 											}`}
 										>
-											{item}
-										</Text>
-									</TouchableOpacity>
-								))}
+											<Text
+												className={`font-rubik-regular text-base ${
+													value === item
+														? "text-primary font-rubik-semibold"
+														: "text-text"
+												}`}
+											>
+												{item.name}
+											</Text>
+										</TouchableOpacity>
+									))}
 							</ScrollView>
 						</View>
 					)}
