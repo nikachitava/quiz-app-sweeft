@@ -2,8 +2,10 @@ import { Stack } from "expo-router";
 import "../global.css";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
-
 import * as SplashScreen from "expo-splash-screen";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 SplashScreen.preventAutoHideAsync();
 
@@ -26,10 +28,12 @@ export default function RootLayout() {
 	if (!fontsLoaded) return null;
 
 	return (
-		<Stack screenOptions={{ headerShown: false }}>
-			<Stack.Screen name="index" />
-			<Stack.Screen name="quiz" />
-			<Stack.Screen name="quizonboard" />
-		</Stack>
+		<QueryClientProvider client={queryClient}>
+			<Stack screenOptions={{ headerShown: false }}>
+				<Stack.Screen name="index" />
+				<Stack.Screen name="quiz" />
+				<Stack.Screen name="quizonboard" />
+			</Stack>
+		</QueryClientProvider>
 	);
 }
