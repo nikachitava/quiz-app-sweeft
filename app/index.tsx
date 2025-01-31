@@ -1,4 +1,4 @@
-import QuizSetupForm from "@/components/QuizSetupForm";
+import QuizSetupForm from "@/components/forms/QuizSetupForm";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 

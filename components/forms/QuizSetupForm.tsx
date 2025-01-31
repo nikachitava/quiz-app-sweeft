@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import CustomInput from "./CustomInput";
-import CustomDropDown from "./CustomDropDown";
+import CustomInput from "../ui/CustomInput";
+import CustomDropDown from "../ui/CustomDropDown";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { router } from "expo-router";
