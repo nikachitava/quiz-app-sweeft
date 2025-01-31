@@ -1,10 +1,11 @@
-import { View, Text, TouchableOpacity, Alert } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import CustomInput from "./CustomInput";
 import CustomDropDown from "./CustomDropDown";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { router } from "expo-router";
 
 const quizSetupFormSchema = z.object({
 	playerName: z.string().min(6, "Name must be at least 6 characters"),
@@ -15,36 +16,12 @@ const quizSetupFormSchema = z.object({
 const QuizSetupForm = () => {
 	const DATA = ["SPORT", "GEOGRAPHY", "SCIENSE", "DEVELOPMENT", "LANGUAGES"];
 
-	const {
-		control,
-		handleSubmit,
-		watch,
-		formState: { errors },
-	} = useForm({
+	const { control, handleSubmit } = useForm({
 		resolver: zodResolver(quizSetupFormSchema),
 	});
 
-	const playerName = watch("playerName");
-
-	const onSubmit = () => {
-		Alert.alert(
-			"Alert Title",
-			"My Alert Msg",
-			[
-				{
-					text: "Cancel",
-					onPress: () => Alert.alert("Cancel Pressed"),
-					style: "cancel",
-				},
-			],
-			{
-				cancelable: true,
-				onDismiss: () =>
-					Alert.alert(
-						"This alert was dismissed by tapping outside of the alert dialog."
-					),
-			}
-		);
+	const onSubmit = (data: any) => {
+		router.navigate({ pathname: "/quizonboard", params: data });
 	};
 
 	return (
@@ -52,21 +29,17 @@ const QuizSetupForm = () => {
 			<CustomInput name="playerName" control={control} />
 			<CustomDropDown
 				data={DATA}
-				placehoder="Select category"
+				placeholder="Select category"
 				name="category"
 				control={control}
 			/>
 			<CustomDropDown
 				data={DATA}
-				placehoder="Select difficulty"
+				placeholder="Select difficulty"
 				name="difficulty"
 				control={control}
 			/>
 
-			<View>
-				<Text>PlayerName: {playerName} </Text>
-				<Text>Category: </Text>
-			</View>
 			<TouchableOpacity
 				onPress={handleSubmit(onSubmit)}
 				className="bg-accent rounded-lg"
