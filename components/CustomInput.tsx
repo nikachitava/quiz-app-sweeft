@@ -1,4 +1,4 @@
-import { TextInput } from "react-native";
+import { TextInput, View } from "react-native";
 
 interface CustomInputPropsTypes {
 	name: string;
@@ -6,10 +6,12 @@ interface CustomInputPropsTypes {
 
 const CustomInput = () => {
 	return (
-		<TextInput
-			placeholder="Enter player name"
-			className="h-10 border border-black p-2 rounded-lg"
-		/>
+		<View>
+			<TextInput
+				placeholder="Enter player name"
+				className="h-12 px-4 border border-black p-2 rounded-lg"
+			/>
+		</View>
 	);
 };
 
