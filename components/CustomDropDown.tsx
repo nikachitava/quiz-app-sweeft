@@ -1,19 +1,19 @@
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
-import React, { useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { Control, Controller } from "react-hook-form";
 
 interface CustomDropDownProps {
 	name: string;
 	control: Control<any>;
 	data: string[];
-	placehoder: string;
+	placeholder: string;
 }
 
 const CustomDropDown: React.FC<CustomDropDownProps> = ({
 	name,
 	control,
 	data,
-	placehoder,
+	placeholder,
 }) => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -33,7 +33,7 @@ const CustomDropDown: React.FC<CustomDropDownProps> = ({
 						activeOpacity={0.7}
 					>
 						<Text className="font-rubik-medium text-base text-text">
-							{value ? value : placehoder}
+							{value ? value : placeholder}
 						</Text>
 					</TouchableOpacity>
 
