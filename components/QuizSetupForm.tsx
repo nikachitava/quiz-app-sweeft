@@ -3,15 +3,9 @@ import React from "react";
 import CustomInput from "./CustomInput";
 import CustomDropDown from "./CustomDropDown";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { router } from "expo-router";
-
-const quizSetupFormSchema = z.object({
-	playerName: z.string().min(6, "Name must be at least 6 characters"),
-	category: z.string().min(1, "You must select category"),
-	difficulty: z.string().min(1, "You must select difficulty"),
-});
+import { quizSetupFormSchema } from "@/schemes/quizSetupFormSchema";
 
 const QuizSetupForm = () => {
 	const DATA = ["SPORT", "GEOGRAPHY", "SCIENSE", "DEVELOPMENT", "LANGUAGES"];
