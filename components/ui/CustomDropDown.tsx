@@ -21,7 +21,7 @@ const CustomDropDown: React.FC<CustomDropDownProps> = ({
 			name={name}
 			control={control}
 			render={({ field: { onChange, value }, fieldState: { error } }) => (
-				<View className="relative">
+				<View className="relative gap-2">
 					<TouchableOpacity
 						className="p-2 border border-black rounded-lg flex-row items-center justify-between pr-4"
 						onPress={toggleDropDownMenu}
@@ -71,7 +71,7 @@ const CustomDropDown: React.FC<CustomDropDownProps> = ({
 					)}
 
 					{error && (
-						<Text className="text-red-500 text-sm mt-1">
+						<Text className="text-sm font-rubik-medium text-error">
 							{error.message}
 						</Text>
 					)}
