@@ -7,18 +7,26 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { router } from "expo-router";
 import { quizSetupFormSchema } from "@/schemes/quizSetupFormSchema";
 import { useFetchCategoriesQuery } from "@/services/api/categoriesQueries";
-import { quiz_difficultios } from "@/data/static/quiz_difficulties";
+import { quiz_difficulties } from "@/data/static/quiz_difficulties";
+import { z } from "zod";
 
 const QuizSetupForm = () => {
-	const { control, handleSubmit } = useForm({
+	const { control, handleSubmit } = useForm<
+		z.infer<typeof quizSetupFormSchema>
+	>({
 		resolver: zodResolver(quizSetupFormSchema),
+		defaultValues: {
+			playerName: "",
+			category: 0,
+			difficulty: "",
+		},
 	});
+
+	const { data } = useFetchCategoriesQuery();
 
 	const onSubmit = (data: any) => {
 		router.navigate({ pathname: "/quizonboard", params: data });
 	};
-
-	const { data } = useFetchCategoriesQuery();
 
 	return (
 		<View className="gap-4">
@@ -28,12 +36,15 @@ const QuizSetupForm = () => {
 				placeholder="Select category"
 				name="category"
 				control={control}
+				valueField="id"
+				getDisplayText={(item) => `${item.name}`}
 			/>
 			<CustomDropDown
-				data={quiz_difficultios}
+				data={quiz_difficulties}
 				placeholder="Select difficulty"
 				name="difficulty"
 				control={control}
+				getDisplayText={(item) => `${item.name}`}
 			/>
 
 			<TouchableOpacity

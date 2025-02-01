@@ -9,11 +9,23 @@ function CustomDropDown<T extends { id: number; name: string }>({
 	control,
 	data,
 	placeholder,
+	valueField = "name",
+	getDisplayText = (item) => item.name,
 }: CustomDropDownProps<T>) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	const toggleDropDownMenu = () => {
 		setIsMenuOpen((prev) => !prev);
+	};
+
+	const getSelectedItemDisplayText = (currentValue: any) => {
+		if (!currentValue) return placeholder;
+
+		const selectedItem = data?.find(
+			(item) => item[valueField] === currentValue
+		);
+
+		return selectedItem ? getDisplayText(selectedItem) : placeholder;
 	};
 
 	return (
@@ -28,7 +40,7 @@ function CustomDropDown<T extends { id: number; name: string }>({
 						activeOpacity={0.7}
 					>
 						<Text className="font-rubik-medium text-base text-text">
-							{value ? value : placeholder}
+							{getSelectedItemDisplayText(value)}
 						</Text>
 						<AntDesign
 							name={isMenuOpen ? "caretup" : "caretdown"}
@@ -47,7 +59,7 @@ function CustomDropDown<T extends { id: number; name: string }>({
 										<TouchableOpacity
 											key={item.id}
 											onPress={() => {
-												onChange(item.name);
+												onChange(item[valueField]);
 												setIsMenuOpen(false);
 											}}
 											className={`p-3 ${
