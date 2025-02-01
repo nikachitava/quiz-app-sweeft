@@ -1,4 +1,4 @@
-export const quiz_difficultios = [
+export const quiz_difficulties = [
 	{
 		id: 1,
 		name: "Easy",
