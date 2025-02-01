@@ -4,5 +4,5 @@ export type QuizStoreType = {
     points: number;
     currentQuestion: number;
     questionsList: TriviaQuestion[],
-    setQuestionList: (category: number, difficulty: string) => Promise<void>;
+    setQuestionList: (category: number | string , difficulty: number | string) => Promise<void>;
 }

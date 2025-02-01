@@ -1,4 +1,4 @@
 export interface GameInfoProps {
-    category: string | string[];
-    difficulty: string | string[];
+    category: string  | number | string[];
+    difficulty: string | number | string[];
 }
