@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { Text } from "react-native";
 import React, { useEffect, useState } from "react";
 import { CountdownProps } from "@/types/CountdownProps";
 
@@ -26,7 +26,7 @@ const Countdown: React.FC<CountdownProps> = ({
 		};
 	}, [count, isActive, onCountdownComplete]);
 
-	return <View className="text-2xl font-bold">{count}</View>;
+	return <Text className="text-2xl font-bold text-center">{count}</Text>;
 };
 
 export default Countdown;
