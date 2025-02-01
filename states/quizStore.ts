@@ -4,7 +4,9 @@ import { create } from 'zustand'
 
 export const useQuizStore = create<QuizStoreType> ((set)=> ({
     points: 0,
+    incrementPoint: () => set((state) => ({points: state.points + 1})),
     currentQuestion: 0,
+    nextQuestion: () => set((state) => ({currentQuestion: state.currentQuestion + 1})),
     questionsList: [],
     setQuestionList: async (category, difficulty) => {
         try {
