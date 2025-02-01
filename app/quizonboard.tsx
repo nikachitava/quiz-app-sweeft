@@ -10,10 +10,13 @@ const quizonboard = () => {
 	const params = useLocalSearchParams();
 	const { category, difficulty } = params;
 
+	const castedCategory = Number(category);
+	const castedDifficulty = difficulty.toString().toLowerCase();
+
 	const { setQuestionList } = useQuizStore((state) => state);
 
 	useEffect(() => {
-		setQuestionList(23, "easy");
+		setQuestionList(castedCategory, castedDifficulty);
 	}, []);
 
 	return (
