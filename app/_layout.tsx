@@ -33,6 +33,7 @@ export default function RootLayout() {
 				<Stack.Screen name="index" />
 				<Stack.Screen name="quiz" />
 				<Stack.Screen name="quizonboard" />
+				<Stack.Screen name="results" />
 			</Stack>
 		</QueryClientProvider>
 	);
