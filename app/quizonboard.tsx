@@ -10,18 +10,18 @@ const quizonboard = () => {
 	const { category, difficulty } = params;
 	return (
 		<SafeAreaView className="h-full">
-			<ScrollView className="h-full flex-1 justify-center">
-				<View className="font-rubik-semibold uppercase text-primary text-4xl text-center">
+			<View className="h-full flex-1 justify-center">
+				<Text className="font-rubik-semibold uppercase text-primary text-4xl text-center">
 					Get Ready
-				</View>
+				</Text>
 				<View className="text-center font-rubik-medium text-text">
 					<Countdown
-						initialCount={500}
+						initialCount={5}
 						onCountdownComplete={() => router.push("/quiz")}
 					/>
 				</View>
 				<GameInfo category={category} difficulty={difficulty} />
-			</ScrollView>
+			</View>
 		</SafeAreaView>
 	);
 };
