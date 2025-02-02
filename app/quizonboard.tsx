@@ -29,7 +29,7 @@ const quizonboard = () => {
 					<Countdown
 						initialCount={5}
 						onCountdownComplete={() =>
-							router.navigate({
+							router.replace({
 								pathname: "/quiz",
 							})
 						}

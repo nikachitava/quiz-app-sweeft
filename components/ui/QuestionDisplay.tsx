@@ -26,10 +26,10 @@ const QuestionDisplay = () => {
 			incrementPoint();
 		}
 
-		if (currentQuestion < questionsList.length - 1) {
+		if (currentQuestion + 1 < questionsList.length) {
 			nextQuestion();
 		} else {
-			router.push("/results");
+			router.replace("/results");
 		}
 	};
 

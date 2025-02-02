@@ -25,7 +25,7 @@ const QuizSetupForm = () => {
 	const { data } = useFetchCategoriesQuery();
 
 	const onSubmit = (data: any) => {
-		router.navigate({ pathname: "/quizonboard", params: data });
+		router.push({ pathname: "/quizonboard", params: data });
 	};
 
 	return (
