@@ -1,14 +1,8 @@
-export const decodeHTMLEntities = (text: string): string => {
-	const entities: { [key: string]: string } = {
-		"&#039;": "'",
-		"&quot;": '"',
-		"&lt;": "<",
-		"&gt;": ">",
-		"&amp;": "&",
-	};
+import entities from '../data/static/entities.json';
 
+export const decodeHTMLEntities = (text: string): string => {
 	return text.replace(
 		/&#?\w+;/g,
-		(match: string) => entities[match] || match
+		(match: string) => (entities as Record<string, string>)[match] || match
 	);
 };
