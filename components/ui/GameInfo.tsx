@@ -19,7 +19,7 @@ const GameInfo: React.FC<GameInfoProps> = ({ category, difficulty }) => {
 
 	return (
 		<View className="bg-white/10 rounded-2xl p-6  backdrop-blur-lg w-full">
-			<View className="space-y-4">
+			<View className="gap-4">
 				<InfoCard
 					icon="folder1"
 					label="Category"

@@ -9,7 +9,7 @@ const QuickTips = () => {
 			<Text className="text-blue-100 text-center mb-4 font-rubik-medium">
 				Quick Tips:
 			</Text>
-			<View className="space-y-2">
+			<View className="gap-2">
 				<QuickTipsItem
 					icon={
 						<AntDesign

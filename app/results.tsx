@@ -95,8 +95,7 @@ const results = () => {
 				</View>
 			</View>
 
-			{/* Action Buttons */}
-			<View className="px-4 mt-6 space-y-3">
+			<View className="px-4 mt-6 gap-3">
 				<Pressable
 					className="bg-primary py-4 rounded-xl flex-row justify-center items-center"
 					onPress={handleTryAgain}
