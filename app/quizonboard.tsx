@@ -33,7 +33,7 @@ const quizonboard = () => {
 							Your quiz is about to begin
 						</Text>
 
-						{/* <View className="bg-white/10 rounded-full w-32 h-32 items-center justify-center mb-8">
+						<View className="bg-white/10 rounded-full w-32 h-32 items-center justify-center mb-8">
 							<View className="bg-white/20 rounded-full w-28 h-28 items-center justify-center">
 								<Countdown
 									initialCount={5}
@@ -44,7 +44,7 @@ const quizonboard = () => {
 									}
 								/>
 							</View>
-						</View> */}
+						</View>
 
 						<GameInfo category={category} difficulty={difficulty} />
 
