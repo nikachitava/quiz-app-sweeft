@@ -8,4 +8,5 @@ export type QuizStoreType = {
     questionsList: TriviaQuestion[],
     setQuestionList: (category: number | string , difficulty: number | string) => Promise<void>;
     resetQuiz: () => void;
+    startAgain: () => void;
 }

@@ -21,7 +21,11 @@ export const useQuizStore = create<QuizStoreType> ((set)=> ({
         points: 0,
         currentQuestion: 0,
         questionsList: [],
-      })
+      }),
+    startAgain: () => set({
+        points:0,
+        currentQuestion: 0
+    })
 
 }))
 
