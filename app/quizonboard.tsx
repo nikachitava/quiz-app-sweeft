@@ -5,7 +5,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Countdown from "@/components/ui/Countdown";
 import GameInfo from "@/components/ui/GameInfo";
 import { useQuizStore } from "@/states/quizStore";
-import { AntDesign } from "@expo/vector-icons";
 import QuickTips from "@/components/ui/QuickTips";
 
 const quizonboard = () => {
@@ -22,7 +21,7 @@ const quizonboard = () => {
 	}, []);
 
 	return (
-		<SafeAreaView className="h-full bg-gradient-to-b from-blue-500 to-blue-700">
+		<SafeAreaView className="h-full bg-blue-500">
 			<View className="h-full">
 				<View className="h-full justify-center items-center px-6">
 					<View className="items-center w-full">
