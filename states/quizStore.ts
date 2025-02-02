@@ -17,6 +17,12 @@ export const useQuizStore = create<QuizStoreType> ((set)=> ({
             throw error;
         }
     },
+    resetQuiz: () => set({
+        points: 0,
+        currentQuestion: 0,
+        questionsList: [],
+      })
+
 }))
 
 

@@ -7,4 +7,5 @@ export type QuizStoreType = {
     nextQuestion: () => void;
     questionsList: TriviaQuestion[],
     setQuestionList: (category: number | string , difficulty: number | string) => Promise<void>;
+    resetQuiz: () => void;
 }
