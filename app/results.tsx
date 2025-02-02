@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Pressable } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useQuizStore } from "@/states/quizStore";
@@ -6,12 +6,20 @@ import { AntDesign } from "@expo/vector-icons";
 import { router } from "expo-router";
 
 const results = () => {
-	const { points, questionsList } = useQuizStore((state) => state);
+	const { points, questionsList, resetQuiz, startAgain } = useQuizStore(
+		(state) => state
+	);
 
 	const percentage = (points / questionsList.length) * 100;
 
-	const handleTryAgain = () => {
+	const handleGoBack = () => {
+		resetQuiz();
 		router.replace("/");
+	};
+
+	const handleTryAgain = () => {
+		startAgain();
+		router.replace("/quiz");
 	};
 
 	return (
@@ -89,7 +97,10 @@ const results = () => {
 
 			{/* Action Buttons */}
 			<View className="px-4 mt-6 space-y-3">
-				<Pressable className="bg-primary py-4 rounded-xl flex-row justify-center items-center">
+				<Pressable
+					className="bg-primary py-4 rounded-xl flex-row justify-center items-center"
+					onPress={handleTryAgain}
+				>
 					<AntDesign
 						name="reload1"
 						size={20}
@@ -102,7 +113,7 @@ const results = () => {
 				</Pressable>
 				<Pressable
 					className="bg-gray-200 py-4 rounded-xl flex-row justify-center items-center"
-					onPress={handleTryAgain}
+					onPress={handleGoBack}
 				>
 					<AntDesign
 						name="home"
