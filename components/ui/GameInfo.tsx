@@ -3,6 +3,7 @@ import React from "react";
 import { GameInfoProps } from "@/types/GameInfoProps";
 import { useFetchCategoriesQuery } from "@/services/api/categoriesQueries";
 import { InfoCard } from "./InfoCard";
+import { getDifficultyColor, getDifficultyIcon } from "@/utils/GameInfoUtils";
 
 const GameInfo: React.FC<GameInfoProps> = ({ category, difficulty }) => {
 	const { data } = useFetchCategoriesQuery();
@@ -15,32 +16,6 @@ const GameInfo: React.FC<GameInfoProps> = ({ category, difficulty }) => {
 	};
 
 	const categoryName = getCategoryName(Number(category));
-
-	const getDifficultyColor = (difficulty: string) => {
-		switch (difficulty.toLowerCase()) {
-			case "easy":
-				return "text-green-500";
-			case "medium":
-				return "text-yellow-500";
-			case "hard":
-				return "text-red-500";
-			default:
-				return "text-gray-500";
-		}
-	};
-
-	const getDifficultyIcon = (difficulty: string) => {
-		switch (difficulty.toLowerCase()) {
-			case "easy":
-				return "star";
-			case "medium":
-				return "staro";
-			case "hard":
-				return "warning";
-			default:
-				return "questioncircleo";
-		}
-	};
 
 	return (
 		<View className="bg-white/10 rounded-2xl p-6  backdrop-blur-lg w-full">
