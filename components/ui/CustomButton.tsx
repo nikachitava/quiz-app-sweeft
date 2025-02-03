@@ -2,6 +2,11 @@ import { Pressable, Text, StyleSheet } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { CustomButtonProps } from "@/types/CustomButtonProps";
+import {
+	getButtonStyle,
+	getIconColor,
+	getTextStyle,
+} from "@/utils/CustomButtonUtils";
 
 export const CustomButton: React.FC<CustomButtonProps> = ({
 	onPress,
@@ -11,42 +16,11 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
 	disabled = false,
 	fullWidth = true,
 }) => {
-	const getButtonStyle = () => {
-		switch (variant) {
-			case "primary":
-				return "bg-primary";
-			case "secondary":
-				return "bg-gray-200";
-			default:
-				return "bg-primary";
-		}
-	};
-
-	const getTextStyle = () => {
-		switch (variant) {
-			case "primary":
-				return "text-neutral";
-			case "secondary":
-				return "text-gray-700";
-			default:
-				return "text-neutral";
-		}
-	};
-
-	const getIconColor = () => {
-		switch (variant) {
-			case "primary":
-				return "white";
-			case "secondary":
-				return "#374151";
-			default:
-				return "white";
-		}
-	};
-
 	return (
 		<Pressable
-			className={`${getButtonStyle()} py-4 rounded-xl flex-row justify-center items-center
+			className={`${getButtonStyle(
+				variant
+			)} py-4 rounded-xl flex-row justify-center items-center
         ${disabled ? "opacity-50" : "opacity-100"}
         ${fullWidth ? "w-full" : "w-auto"}`}
 			onPress={onPress}
@@ -57,12 +31,14 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
 				<AntDesign
 					name={icon}
 					size={20}
-					color={getIconColor()}
+					color={getIconColor(variant)}
 					style={{ marginRight: 8 }}
 				/>
 			)}
 			<Text
-				className={`${getTextStyle()} text-center font-rubik-semibold`}
+				className={`${getTextStyle(
+					variant
+				)} text-center font-rubik-semibold`}
 			>
 				{label}
 			</Text>
