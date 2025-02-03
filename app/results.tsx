@@ -1,9 +1,10 @@
-import { View, Text, Pressable } from "react-native";
+import { View, Text } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useQuizStore } from "@/states/quizStore";
 import { AntDesign } from "@expo/vector-icons";
 import { router } from "expo-router";
+import { CustomButton } from "@/components/ui/CustomButton";
 
 const results = () => {
 	const { points, questionsList, resetQuiz, startAgain } = useQuizStore(
@@ -96,34 +97,18 @@ const results = () => {
 			</View>
 
 			<View className="px-4 mt-6 gap-3">
-				<Pressable
-					className="bg-primary py-4 rounded-xl flex-row justify-center items-center"
+				<CustomButton
+					label="Try Again"
+					icon="reload1"
+					variant="primary"
 					onPress={handleTryAgain}
-				>
-					<AntDesign
-						name="reload1"
-						size={20}
-						color="white"
-						style={{ marginRight: 8 }}
-					/>
-					<Text className="text-neutral text-center font-rubik-semibold">
-						Try Again
-					</Text>
-				</Pressable>
-				<Pressable
-					className="bg-gray-200 py-4 rounded-xl flex-row justify-center items-center"
+				/>
+				<CustomButton
+					label="Back to Home"
+					icon="home"
+					variant="secondary"
 					onPress={handleGoBack}
-				>
-					<AntDesign
-						name="home"
-						size={20}
-						color="#374151"
-						style={{ marginRight: 8 }}
-					/>
-					<Text className="text-gray-700 text-center font-semibold">
-						Back to Home
-					</Text>
-				</Pressable>
+				/>
 			</View>
 		</SafeAreaView>
 	);
